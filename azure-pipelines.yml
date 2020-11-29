@@ -14,13 +14,19 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: app/Dockerfile
-- task: Docker@2
-  inputs:
-    containerRegistry: 'image-javascript-docker'
-    command: 'login'
+# - task: Docker@2
+#   inputs:
+#     containerRegistry: 'image-javascript-docker'
+#     command: 'login'
 - task: Docker@2
   displayName: Push an image
   inputs:
     containerRegistry: 'image-javascript-docker'
     repository: $(imageName)
-    command: 'push'
+    command: 'loginAndPush'
+# - task: Docker@2
+#   inputs:
+#     containerRegistry: 'image-javascript-docker'
+#     repository: 'pipelines-javascript-docker'
+#     command: 'buildAndPush'
+#     Dockerfile: '**/Dockerfile'
