@@ -18,5 +18,5 @@ steps:
   displayName: Push an image
   inputs:
     containerRegistry: 'image-javascript-docker'
-    repository: 'javascript-app'
+    repository: $(imageName)
     command: 'push'
