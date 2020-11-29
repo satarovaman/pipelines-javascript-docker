@@ -14,3 +14,9 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: app/Dockerfile
+- task: Docker@2
+  displayName: Push an image
+  inputs:
+    containerRegistry: 'image-javascript-docker'
+    repository: 'javascript-app'
+    command: 'push'
